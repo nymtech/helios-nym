@@ -99,6 +99,8 @@ struct Cli {
     load_external_fallback: bool,
     #[clap(short = 's', long, env)]
     strict_checkpoint_age: bool,
+    #[clap(short = 'm', long, env)]
+    use_mixnet: bool,
 }
 
 impl Cli {
@@ -117,6 +119,7 @@ impl Cli {
             fallback: self.fallback.clone(),
             load_external_fallback: self.load_external_fallback,
             strict_checkpoint_age: self.strict_checkpoint_age,
+            use_mixnet: self.use_mixnet,
         }
     }
 

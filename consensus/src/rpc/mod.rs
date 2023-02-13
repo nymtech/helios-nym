@@ -11,6 +11,7 @@ use crate::types::{BeaconBlock, Bootstrap, FinalityUpdate, OptimisticUpdate, Upd
 #[cfg_attr(target_arch = "wasm32", async_trait(?Send))]
 pub trait ConsensusRpc {
     fn new(path: &str) -> Self;
+    fn new_mixnet(path: &str) -> Self;
     async fn get_bootstrap(&self, block_root: &'_ [u8]) -> Result<Bootstrap>;
     async fn get_updates(&self, period: u64, count: u8) -> Result<Vec<Update>>;
     async fn get_finality_update(&self) -> Result<FinalityUpdate>;

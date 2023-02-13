@@ -59,7 +59,11 @@ impl<R: ConsensusRpc> ConsensusClient<R> {
         checkpoint_block_root: &[u8],
         config: Arc<Config>,
     ) -> Result<ConsensusClient<R>> {
-        let rpc = R::new(rpc);
+        let rpc = if config.use_mixnet {
+            R::new_mixnet(rpc)
+        } else {
+            R::new(rpc)
+        };
 
         Ok(ConsensusClient {
             rpc,

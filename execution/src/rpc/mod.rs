@@ -16,6 +16,9 @@ pub trait ExecutionRpc: Send + Clone + Sync + 'static {
     fn new(rpc: &str) -> Result<Self>
     where
         Self: Sized;
+    fn new_mixnet(rpc: &str) -> Result<Self>
+    where
+        Self: Sized;
 
     async fn get_proof(
         &self,

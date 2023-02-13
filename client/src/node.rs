@@ -37,11 +37,13 @@ impl Node {
         let consensus_rpc = &config.consensus_rpc;
         let checkpoint_hash = &config.checkpoint.as_ref().unwrap();
         let execution_rpc = &config.execution_rpc;
+        let use_mixnet = config.use_mixnet;
 
         let consensus = ConsensusClient::new(consensus_rpc, checkpoint_hash, config.clone())
             .map_err(NodeError::ConsensusClientCreationError)?;
         let execution = Arc::new(
-            ExecutionClient::new(execution_rpc).map_err(NodeError::ExecutionClientCreationError)?,
+            ExecutionClient::new(execution_rpc, use_mixnet)
+                .map_err(NodeError::ExecutionClientCreationError)?,
         );
 
         let payloads = BTreeMap::new();

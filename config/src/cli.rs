@@ -14,6 +14,7 @@ pub struct CliConfig {
     pub fallback: Option<String>,
     pub load_external_fallback: bool,
     pub strict_checkpoint_age: bool,
+    pub use_mixnet: bool,
 }
 
 impl CliConfig {
@@ -51,6 +52,8 @@ impl CliConfig {
             "strict_checkpoint_age",
             Value::from(self.strict_checkpoint_age),
         );
+
+        user_dict.insert("use_mixnet", Value::from(self.use_mixnet));
 
         Serialized::from(user_dict, network)
     }

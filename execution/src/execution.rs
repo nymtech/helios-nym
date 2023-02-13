@@ -31,8 +31,12 @@ pub struct ExecutionClient<R: ExecutionRpc> {
 }
 
 impl<R: ExecutionRpc> ExecutionClient<R> {
-    pub fn new(rpc: &str) -> Result<Self> {
-        let rpc: R = ExecutionRpc::new(rpc)?;
+    pub fn new(rpc: &str, use_mixnet: bool) -> Result<Self> {
+        let rpc: R = if use_mixnet {
+            ExecutionRpc::new_mixnet(rpc)?
+        } else {
+            ExecutionRpc::new(rpc)?
+        };
         Ok(ExecutionClient { rpc })
     }
 

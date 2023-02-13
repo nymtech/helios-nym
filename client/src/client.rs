@@ -46,6 +46,7 @@ pub struct ClientBuilder {
     fallback: Option<String>,
     load_external_fallback: bool,
     strict_checkpoint_age: bool,
+    use_mixnet: bool,
 }
 
 impl ClientBuilder {
@@ -104,6 +105,11 @@ impl ClientBuilder {
 
     pub fn strict_checkpoint_age(mut self) -> Self {
         self.strict_checkpoint_age = true;
+        self
+    }
+
+    pub fn use_mixnet(mut self) -> Self {
+        self.use_mixnet = true;
         self
     }
 
@@ -186,6 +192,12 @@ impl ClientBuilder {
             self.strict_checkpoint_age
         };
 
+        let use_mixnet = if let Some(config) = &self.config {
+            self.use_mixnet || config.use_mixnet
+        } else {
+            self.use_mixnet
+        };
+
         let config = Config {
             consensus_rpc,
             execution_rpc,
@@ -205,6 +217,7 @@ impl ClientBuilder {
             fallback,
             load_external_fallback,
             strict_checkpoint_age,
+            use_mixnet,
         };
 
         Client::new(config)

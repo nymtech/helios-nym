@@ -25,6 +25,14 @@ impl ExecutionRpc for MockRpc {
         Ok(MockRpc { path })
     }
 
+    fn new_mixnet(rpc: &str) -> Result<Self>
+    where
+        Self: Sized,
+    {
+        let path = PathBuf::from(rpc);
+        Ok(MockRpc { path })
+    }
+
     async fn get_proof(
         &self,
         _address: &Address,

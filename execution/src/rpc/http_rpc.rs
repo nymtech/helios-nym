@@ -43,6 +43,27 @@ impl ExecutionRpc for HttpRpc {
         })
     }
 
+    fn new_mixnet(rpc: &str) -> Result<Self>
+    where
+        Self: Sized,
+    {
+        let url = reqwest::Url::parse(rpc)?;
+        let client = reqwest::Client::builder()
+            .proxy(reqwest::Proxy::all("socks5://127.0.0.1:1080").unwrap())
+            .build()
+            .unwrap();
+        let http = Http::new_with_client(url, client);
+        let mut client = RetryClient::new(http, Box::new(HttpRateLimitRetryPolicy), 100, 50);
+        client.set_compute_units(300);
+
+        let provider = Provider::new(client);
+
+        Ok(HttpRpc {
+            url: rpc.to_string(),
+            provider,
+        })
+    }
+
     async fn get_proof(
         &self,
         address: &Address,

@@ -17,6 +17,12 @@ impl ConsensusRpc for MockRpc {
         }
     }
 
+    fn new_mixnet(path: &str) -> Self {
+        MockRpc {
+            testdata: PathBuf::from(path),
+        }
+    }
+
     async fn get_bootstrap(&self, _block_root: &'_ [u8]) -> Result<Bootstrap> {
         let bootstrap = read_to_string(self.testdata.join("bootstrap.json"))?;
         Ok(serde_json::from_str(&bootstrap)?)

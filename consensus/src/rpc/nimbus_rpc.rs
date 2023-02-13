@@ -10,14 +10,28 @@ use common::errors::RpcError;
 #[derive(Debug)]
 pub struct NimbusRpc {
     rpc: String,
+    client: reqwest::Client,
 }
 
 #[cfg_attr(not(target_arch = "wasm32"), async_trait)]
 #[cfg_attr(target_arch = "wasm32", async_trait(?Send))]
 impl ConsensusRpc for NimbusRpc {
     fn new(rpc: &str) -> Self {
+        let client = reqwest::Client::new();
         NimbusRpc {
             rpc: rpc.to_string(),
+            client,
+        }
+    }
+
+    fn new_mixnet(rpc: &str) -> Self {
+        let client = reqwest::Client::builder()
+            .proxy(reqwest::Proxy::all("socks5://127.0.0.1:1080").unwrap())
+            .build()
+            .unwrap();
+        NimbusRpc {
+            rpc: rpc.to_string(),
+            client,
         }
     }
 
@@ -28,8 +42,8 @@ impl ConsensusRpc for NimbusRpc {
             self.rpc, root_hex
         );
 
-        let client = reqwest::Client::new();
-        let res = client
+        let res = self
+            .client
             .get(req)
             .send()
             .await
@@ -48,8 +62,8 @@ impl ConsensusRpc for NimbusRpc {
             self.rpc, period, count
         );
 
-        let client = reqwest::Client::new();
-        let res = client
+        let res = self
+            .client
             .get(req)
             .send()
             .await
@@ -63,7 +77,10 @@ impl ConsensusRpc for NimbusRpc {
 
     async fn get_finality_update(&self) -> Result<FinalityUpdate> {
         let req = format!("{}/eth/v1/beacon/light_client/finality_update", self.rpc);
-        let res = reqwest::get(req)
+        let res = self
+            .client
+            .get(req)
+            .send()
             .await
             .map_err(|e| RpcError::new("finality_update", e))?
             .json::<FinalityUpdateResponse>()
@@ -75,7 +92,10 @@ impl ConsensusRpc for NimbusRpc {
 
     async fn get_optimistic_update(&self) -> Result<OptimisticUpdate> {
         let req = format!("{}/eth/v1/beacon/light_client/optimistic_update", self.rpc);
-        let res = reqwest::get(req)
+        let res = self
+            .client
+            .get(req)
+            .send()
             .await
             .map_err(|e| RpcError::new("optimistic_update", e))?
             .json::<OptimisticUpdateResponse>()
@@ -87,7 +107,10 @@ impl ConsensusRpc for NimbusRpc {
 
     async fn get_block(&self, slot: u64) -> Result<BeaconBlock> {
         let req = format!("{}/eth/v2/beacon/blocks/{}", self.rpc, slot);
-        let res = reqwest::get(req)
+        let res = self
+            .client
+            .get(req)
+            .send()
             .await
             .map_err(|e| RpcError::new("blocks", e))?
             .json::<BeaconBlockResponse>()
@@ -99,7 +122,10 @@ impl ConsensusRpc for NimbusRpc {
 
     async fn chain_id(&self) -> Result<u64> {
         let req = format!("{}/eth/v1/config/spec", self.rpc);
-        let res = reqwest::get(req)
+        let res = self
+            .client
+            .get(req)
+            .send()
             .await
             .map_err(|e| RpcError::new("spec", e))?
             .json::<SpecResponse>()
