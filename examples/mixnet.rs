@@ -42,5 +42,7 @@ async fn main() -> Result<()> {
         utils::format_ether(balance)
     );
 
+    client.terminate().await;
+
     Ok(())
 }

@@ -234,6 +234,16 @@ pub struct Client<DB: Database> {
 }
 
 impl<DB: Database> Client<DB> {
+    async fn start_socks5(&mut self) {
+        if let Err(e) = self.node.write().await.start_socks5().await {
+            warn!("Could not start socks5 server: {:?}", e);
+        }
+    }
+
+    pub async fn terminate(&mut self) {
+        self.node.write().await.terminate().await
+    }
+
     fn new(mut config: Config) -> Result<Self> {
         let db = DB::new(&config)?;
         if config.checkpoint.is_none() {
@@ -259,6 +269,9 @@ impl<DB: Database> Client<DB> {
     }
 
     pub async fn start(&mut self) -> Result<()> {
+        println!("Started client");
+        self.start_socks5().await;
+
         #[cfg(not(target_arch = "wasm32"))]
         if let Some(rpc) = &mut self.rpc {
             rpc.start().await?;

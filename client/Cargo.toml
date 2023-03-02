@@ -17,6 +17,7 @@ common = { path = "../common" }
 consensus = { path = "../consensus" }
 execution = { path = "../execution" }
 config = { path = "../config" }
+nym-socks5 = { path = "../nym-socks5" }
 
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
 jsonrpsee = { version = "0.15.1", features = ["full"] }

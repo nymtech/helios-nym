@@ -31,16 +31,37 @@ pub struct Node {
     finalized_payloads: BTreeMap<u64, ExecutionPayload>,
     current_slot: Option<u64>,
     pub history_size: usize,
+    socks5_server: Option<nym_socks5::Socks5Server>,
 }
 
 impl Node {
+    pub async fn start_socks5(&mut self) -> Result<(), NodeError> {
+        let (control_tx, msg_rx, exit_status_rx, _used_gateway) =
+            nym_socks5::tasks::start_nym_socks5_client("helios")?;
+        let exit_join_handler = nym_socks5::tasks::start_disconnect_listener(exit_status_rx);
+        self.socks5_server = Some(nym_socks5::Socks5Server::new(
+            control_tx,
+            exit_join_handler,
+            msg_rx,
+        ));
+        tokio::time::sleep(tokio::time::Duration::from_secs(5)).await;
+        Ok(())
+    }
+    pub async fn terminate(&mut self) {
+        if let Some(socks5_server) = self.socks5_server.take() {
+            socks5_server.terminate().await;
+        }
+    }
+
     pub fn new(config: Arc<Config>) -> Result<Self, NodeError> {
         let consensus_rpc = &config.consensus_rpc;
         let checkpoint_hash = &config.checkpoint.as_ref().unwrap();
         let execution_rpc = &config.execution_rpc;
         let use_mixnet = config.use_mixnet;
 
-        if use_mixnet {}
+        if use_mixnet {
+            nym_socks5::config::Config::init("helios", "Entztfv6Uaz2hpYHQJ6JKoaCTpDL5dja18SuQWVJAmmx.Cvhn9rBJw5Ay9wgHcbgCnVg89MPSV5s2muPV2YF1BXYu@Fo4f4SQLdoyoGkFae5TpVhRVoXCF8UiypLVGtGjujVPf")?;
+        }
         let consensus = ConsensusClient::new(consensus_rpc, checkpoint_hash, config.clone())
             .map_err(NodeError::ConsensusClientCreationError)?;
         let execution = Arc::new(
@@ -59,6 +80,7 @@ impl Node {
             finalized_payloads,
             current_slot: None,
             history_size: 64,
+            socks5_server: None,
         })
     }
 

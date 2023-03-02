@@ -9,6 +9,9 @@ pub enum NodeError {
     #[error(transparent)]
     ExecutionEvmError(#[from] EvmError),
 
+    #[error("socks5 error: {0}")]
+    Socks5Error(#[from] nym_socks5::error::BackendError),
+
     #[error("execution error: {0}")]
     ExecutionError(Report),
 

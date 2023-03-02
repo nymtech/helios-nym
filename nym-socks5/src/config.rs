@@ -3,16 +3,9 @@
 
 use crate::error::{BackendError, Result};
 use client_core::config::Config as BaseConfig;
+use config_common::NymConfig;
 use nym_socks5::client::config::Config as Socks5Config;
-
-static SOCKS5_CONFIG_ID: &str = "nym-harbour-master";
-
-pub fn socks5_config_id_appended_with(gateway_id: &str) -> Result<String> {
-    use std::fmt::Write as _;
-    let mut id = SOCKS5_CONFIG_ID.to_string();
-    write!(id, "-{}", gateway_id)?;
-    Ok(id)
-}
+use tap::TapFallible;
 
 #[derive(Debug)]
 pub struct Config {
@@ -26,6 +19,10 @@ impl Config {
         }
     }
 
+    pub fn get_socks5(&self) -> &Socks5Config {
+        &self.socks5
+    }
+
     pub fn get_base(&self) -> &BaseConfig<Socks5Config> {
         self.socks5.get_base()
     }
@@ -34,7 +31,7 @@ impl Config {
         self.socks5.get_base_mut()
     }
 
-    pub async fn init(id: &str, service_provider: &str) -> Result<()> {
+    pub fn init(id: &str, service_provider: &str) -> Result<()> {
         // use mainnet
         network_defaults::setup_env(None);
 
@@ -78,6 +75,10 @@ pub async fn init_socks5_config(id: String, provider_address: String) -> Result<
 
     config.get_base_mut().set_gateway_endpoint(gateway);
     config.get_base_mut().set_no_cover_traffic();
+
+    config.get_socks5().save_to_file(None).tap_err(|_| {
+        log::error!("Failed to save the config file");
+    })?;
 
     let address = client_core::init::get_client_address_from_stored_keys(config.get_base())?;
     log::info!("The address of this client is: {}", address);

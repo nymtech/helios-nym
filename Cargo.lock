@@ -769,6 +769,7 @@ dependencies = [
  "hex",
  "jsonrpsee",
  "log",
+ "nym-socks5",
  "serde",
  "ssz-rs",
  "thiserror",
