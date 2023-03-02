@@ -12,8 +12,9 @@ The entire size of Helios's binary is 5.3Mb and should be easy to compile into W
 
 ## Running it with Nym
 
-1. Set up and run a [nym-socks5-client](https://nymtech.net/docs/clients/socks5-client.html)
-1. `cargo run --example mixnet --release`
+Make sure that your 1080 local port is free, as that port is used for socks5 traffic redirection.
+
+`cargo run --example mixnet --release`
 
 That's all you need to do - the remaining "Helios standard instructions" below refer to the non-Nym ways of running it.
 
