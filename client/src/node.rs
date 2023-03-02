@@ -7,6 +7,7 @@ use ethers::types::{
     Filter, Log, SyncProgress, SyncingStatus, Transaction, TransactionReceipt, H256,
 };
 use eyre::{eyre, Result};
+use log::warn;
 
 use common::errors::BlockNotFoundError;
 use common::types::BlockTag;
@@ -404,7 +405,7 @@ impl Node {
         let slot_delay = expected_slot - synced_slot;
 
         if slot_delay > 10 {
-            return Err(NodeError::OutOfSync(slot_delay));
+            warn!("Slot delay of {}", slot_delay);
         }
 
         Ok(())
