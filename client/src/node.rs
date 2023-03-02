@@ -40,6 +40,7 @@ impl Node {
         let execution_rpc = &config.execution_rpc;
         let use_mixnet = config.use_mixnet;
 
+        if use_mixnet {}
         let consensus = ConsensusClient::new(consensus_rpc, checkpoint_hash, config.clone())
             .map_err(NodeError::ConsensusClientCreationError)?;
         let execution = Arc::new(

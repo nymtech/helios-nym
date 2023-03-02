@@ -1,0 +1,22 @@
+[package]
+name = "nym-socks5"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+futures = "0.3"
+log = { version = "0.4", features = ["serde"] }
+reqwest = { version = "0.11", features = ["json", "socks"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tap = "1"
+thiserror = "1"
+tokio = { version = "1.21.2", features = ["time", "rt-multi-thread", "process", "macros", "sync", "net", "signal"] }
+
+client-core = { path = "../../nym/clients/client-core", package = "client-core" }
+config-common = { path = "../../nym/common/config", package = "nym-config" }
+network_defaults = { path = "../../nym/common/network-defaults", package = "nym-network-defaults" }
+nym_socks5 = { path = "../../nym/clients/socks5", package = "nym-socks5-client" }
+task = { path = "../../nym/common/task", package = "nym-task" }

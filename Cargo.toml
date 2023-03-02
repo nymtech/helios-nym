@@ -13,6 +13,7 @@ members = [
     "consensus",
     "execution",
     "helios-ts",
+    "nym-socks5",
 ]
 
 [dependencies]
