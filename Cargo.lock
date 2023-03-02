@@ -780,6 +780,7 @@ dependencies = [
 [[package]]
 name = "client-core"
 version = "1.1.11"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "async-trait",
  "dashmap",
@@ -828,6 +829,7 @@ dependencies = [
 [[package]]
 name = "coconut-bandwidth-contract-common"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "cosmwasm-std",
  "multisig-contract-common",
@@ -838,6 +840,7 @@ dependencies = [
 [[package]]
 name = "coconut-dkg-common"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "cosmwasm-std",
  "cw-utils",
@@ -850,6 +853,7 @@ dependencies = [
 [[package]]
 name = "coconut-interface"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "bs58",
  "getset",
@@ -1217,6 +1221,7 @@ dependencies = [
 [[package]]
 name = "credential-storage"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "async-trait",
  "log",
@@ -1228,6 +1233,7 @@ dependencies = [
 [[package]]
 name = "credentials"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "bls12_381 0.5.0",
  "coconut-interface",
@@ -1664,6 +1670,7 @@ dependencies = [
 [[package]]
 name = "dkg"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "bitvec 1.0.1",
  "bls12_381 0.6.0",
@@ -2596,6 +2603,7 @@ dependencies = [
 [[package]]
 name = "gateway-client"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "async-trait",
  "coconut-interface",
@@ -2629,6 +2637,7 @@ dependencies = [
 [[package]]
 name = "gateway-requests"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "bs58",
  "coconut-interface",
@@ -2821,6 +2830,7 @@ dependencies = [
 [[package]]
 name = "group-contract-common"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "cw4",
  "schemars",
@@ -3888,6 +3898,7 @@ dependencies = [
 [[package]]
 name = "mobile-storage"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "async-trait",
  "thiserror",
@@ -3896,6 +3907,7 @@ dependencies = [
 [[package]]
 name = "multisig-contract-common"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "cosmwasm-std",
  "cw-utils",
@@ -4088,6 +4100,7 @@ dependencies = [
 [[package]]
 name = "nym-api-requests"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "bs58",
  "coconut-interface",
@@ -4102,6 +4115,7 @@ dependencies = [
 [[package]]
 name = "nym-bin-common"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "clap 4.1.8",
  "clap_complete",
@@ -4116,6 +4130,7 @@ dependencies = [
 [[package]]
 name = "nym-config"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "cfg-if",
  "handlebars",
@@ -4129,6 +4144,7 @@ dependencies = [
 [[package]]
 name = "nym-contracts-common"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "bs58",
  "cosmwasm-std",
@@ -4140,6 +4156,7 @@ dependencies = [
 [[package]]
 name = "nym-crypto"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "aes 0.8.2",
  "blake3",
@@ -4162,6 +4179,7 @@ dependencies = [
 [[package]]
 name = "nym-execute"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "quote",
  "syn",
@@ -4170,6 +4188,7 @@ dependencies = [
 [[package]]
 name = "nym-mixnet-contract-common"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "bs58",
  "cosmwasm-std",
@@ -4187,6 +4206,7 @@ dependencies = [
 [[package]]
 name = "nym-network-defaults"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "cfg-if",
  "dotenv",
@@ -4200,6 +4220,7 @@ dependencies = [
 [[package]]
 name = "nym-nonexhaustive-delayqueue"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "futures-core",
  "slab",
@@ -4212,6 +4233,7 @@ dependencies = [
 [[package]]
 name = "nym-pemstore"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "pem",
 ]
@@ -4238,6 +4260,7 @@ dependencies = [
 [[package]]
 name = "nym-socks5-client"
 version = "1.1.11"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "clap 4.1.8",
  "client-core",
@@ -4277,6 +4300,7 @@ dependencies = [
 [[package]]
 name = "nym-sphinx"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "nym-crypto",
  "nym-sphinx-acknowledgements",
@@ -4298,6 +4322,7 @@ dependencies = [
 [[package]]
 name = "nym-sphinx-acknowledgements"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "nym-crypto",
  "nym-pemstore",
@@ -4312,6 +4337,7 @@ dependencies = [
 [[package]]
 name = "nym-sphinx-addressing"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "nym-crypto",
  "nym-sphinx-types",
@@ -4322,6 +4348,7 @@ dependencies = [
 [[package]]
 name = "nym-sphinx-anonymous-replies"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "bs58",
  "nym-crypto",
@@ -4338,6 +4365,7 @@ dependencies = [
 [[package]]
 name = "nym-sphinx-chunking"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "log",
  "nym-sphinx-addressing",
@@ -4350,6 +4378,7 @@ dependencies = [
 [[package]]
 name = "nym-sphinx-cover"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "nym-crypto",
  "nym-sphinx-acknowledgements",
@@ -4366,6 +4395,7 @@ dependencies = [
 [[package]]
 name = "nym-sphinx-forwarding"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "nym-sphinx-addressing",
  "nym-sphinx-params",
@@ -4375,6 +4405,7 @@ dependencies = [
 [[package]]
 name = "nym-sphinx-framing"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "bytes",
  "nym-sphinx-params",
@@ -4386,6 +4417,7 @@ dependencies = [
 [[package]]
 name = "nym-sphinx-params"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "nym-crypto",
  "nym-sphinx-types",
@@ -4395,6 +4427,7 @@ dependencies = [
 [[package]]
 name = "nym-sphinx-types"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "sphinx-packet",
 ]
@@ -4402,6 +4435,7 @@ dependencies = [
 [[package]]
 name = "nym-task"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "futures",
  "log",
@@ -4414,6 +4448,7 @@ dependencies = [
 [[package]]
 name = "nym-topology"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "bs58",
  "log",
@@ -4429,6 +4464,7 @@ dependencies = [
 [[package]]
 name = "nym-vesting-contract"
 version = "1.1.4"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "cosmwasm-std",
  "cw-storage-plus",
@@ -4444,6 +4480,7 @@ dependencies = [
 [[package]]
 name = "nym-vesting-contract-common"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "cosmwasm-std",
  "nym-contracts-common",
@@ -4455,6 +4492,7 @@ dependencies = [
 [[package]]
 name = "nymcoconut"
 version = "0.5.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "bls12_381 0.6.0",
  "bs58",
@@ -4579,6 +4617,7 @@ dependencies = [
 [[package]]
 name = "ordered-buffer"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "log",
  "thiserror",
@@ -5125,6 +5164,7 @@ dependencies = [
 [[package]]
 name = "proxy-helpers"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "bytes",
  "futures",
@@ -5913,6 +5953,7 @@ dependencies = [
 [[package]]
 name = "service-providers-common"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "async-trait",
  "log",
@@ -6049,6 +6090,7 @@ dependencies = [
 [[package]]
 name = "socks5-requests"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "nym-sphinx-addressing",
  "serde",
@@ -7119,6 +7161,7 @@ dependencies = [
 [[package]]
 name = "validator-client"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "async-trait",
  "base64 0.13.1",
@@ -7350,6 +7393,7 @@ dependencies = [
 [[package]]
 name = "wasm-utils"
 version = "0.1.0"
+source = "git+https://github.com/nymtech/nym?branch=helios_dep#c835ab24fd8799e1ec244c241046280be9faafe4"
 dependencies = [
  "futures",
  "js-sys",

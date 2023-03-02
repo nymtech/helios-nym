@@ -15,8 +15,8 @@ tap = "1"
 thiserror = "1"
 tokio = { version = "1.21.2", features = ["time", "rt-multi-thread", "process", "macros", "sync", "net", "signal"] }
 
-client-core = { path = "../../nym/clients/client-core", package = "client-core" }
-config-common = { path = "../../nym/common/config", package = "nym-config" }
-network_defaults = { path = "../../nym/common/network-defaults", package = "nym-network-defaults" }
-nym_socks5 = { path = "../../nym/clients/socks5", package = "nym-socks5-client" }
-task = { path = "../../nym/common/task", package = "nym-task" }
+client-core = { git = "https://github.com/nymtech/nym", branch = "helios_dep", package = "client-core" }
+config-common = { git = "https://github.com/nymtech/nym", branch = "helios_dep", package = "nym-config" }
+network_defaults = { git = "https://github.com/nymtech/nym", branch = "helios_dep", package = "nym-network-defaults" }
+nym_socks5 = { git = "https://github.com/nymtech/nym", branch = "helios_dep", package = "nym-socks5-client" }
+task = { git = "https://github.com/nymtech/nym", branch = "helios_dep", package = "nym-task" }
