@@ -1,12 +1,25 @@
-## Helios
+## Helios (Nym mixnet fork)
 
 [![build](https://github.com/a16z/helios/actions/workflows/test.yml/badge.svg)](https://github.com/a16z/helios/actions/workflows/test.yml) [![license: MIT](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT) [![chat](https://img.shields.io/badge/chat-telegram-blue)](https://t.me/+IntDY_gZJSRkNTJj)
 
-Helios is a fully trustless, efficient, and portable Ethereum light client written in Rust.
+Helios is a fully trustless, efficient, and portable Ethereum light client written in Rust. 
+
+This fork of Helios includes nascent support for the Nym mixnet, which provides strong eavesdropping protection for your Ethereum transactions.
 
 Helios converts an untrusted centralized RPC endpoint into a safe unmanipulable local RPC for its users. It syncs in seconds, requires no storage, and is lightweight enough to run on mobile devices.
 
 The entire size of Helios's binary is 5.3Mb and should be easy to compile into WebAssembly. This makes it a perfect target to embed directly inside wallets and dapps.
+
+## Running it with Nym
+
+1. Set up and run a [nym-socks5-client](https://nymtech.net/docs/clients/socks5-client.html)
+1. `cargo run --example mixnet --release`
+
+That's all you need to do - the remaining "Helios standard instructions" below refer to the non-Nym ways of running it.
+
+Note: not all Nym network requesters are up to date with the Alchemy URLs that are needed in order to proxy Helios requests, this will resolve as our community updates their systems. 
+
+## Helios standard instructions
 
 ## Installing
 
