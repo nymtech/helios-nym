@@ -49,7 +49,7 @@ impl ExecutionRpc for HttpRpc {
     {
         let url = reqwest::Url::parse(rpc)?;
         let client = reqwest::Client::builder()
-            .proxy(reqwest::Proxy::all("socks5://127.0.0.1:1080").unwrap())
+            .proxy(reqwest::Proxy::all("socks5h://127.0.0.1:1080").unwrap())
             .build()
             .unwrap();
         let http = Http::new_with_client(url, client);

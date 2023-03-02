@@ -26,7 +26,7 @@ impl ConsensusRpc for NimbusRpc {
 
     fn new_mixnet(rpc: &str) -> Self {
         let client = reqwest::Client::builder()
-            .proxy(reqwest::Proxy::all("socks5://127.0.0.1:1080").unwrap())
+            .proxy(reqwest::Proxy::all("socks5h://127.0.0.1:1080").unwrap())
             .build()
             .unwrap();
         NimbusRpc {
